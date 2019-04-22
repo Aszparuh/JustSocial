@@ -1,9 +1,10 @@
 const express = require('express');
+const config = require('./config');
 
 const init = (data) => {
     const app = express();
 
-    require('./config').applyTo(app);
+    config.applyTo(app);
     // require('./auth').applyTo(app, data);
 
     // app.use(require('connect-flash')());
