@@ -17,7 +17,7 @@ export default function withAuth(AuthComponent) {
         prior to granting them enterance into the app. */
         componentWillMount() {
             if (!Auth.loggedIn()) {
-                this.props.history.replace('/login')
+                this.props.history.push('/login')
             }
             else {
                 /* Try to get confirmation message from the Auth helper. */
@@ -34,7 +34,7 @@ export default function withAuth(AuthComponent) {
                 catch (err) {
                     console.log(err);
                     Auth.logout()
-                    this.props.history.replace('/login');
+                    this.props.history.push('/login');
                 }
             }
         }

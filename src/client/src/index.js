@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import Login from './login';
 import Signup from './signup';
+import Home from './home';
 
 /* Here we will create our routes right off the bat in order to 
 prevent the user from getting very far in our app without authentication. */

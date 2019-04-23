@@ -27,12 +27,12 @@ export default class Signup extends Component {
 
         e.preventDefault();
         
-        axios.post("/signup", {
+        axios.post("http://localhost:3001/v1/api/auth/signup", {
                 username: this.state.username,
                 password: this.state.password
             }).then((data) => {
                 console.log(data);
-                this.props.history.replace('/login');
+                this.props.history.push('/login');
             })
     }
 

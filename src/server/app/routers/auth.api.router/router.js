@@ -7,7 +7,7 @@ const attachTo = (app, data) => {
 
     const apiRouter = new Router();
 
-    apiRouter.get('/signup', (req, res) => {
+    apiRouter.post('/signup', (req, res) => {
         const validationResult = validateSignupForm(req.body);
         if (!validationResult.success) {
             return res.status(400).json({

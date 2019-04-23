@@ -7,7 +7,7 @@ export default class AuthHelperMethods {
     login = (username, password) => {
         
         // Get a token from api server using the fetch api
-        return this.fetch(`/log-in`, {
+        return this.fetch(`http://localhost:3001/v1/api/auth/login`, {
             method: 'POST',
             body: JSON.stringify({
                 username,
@@ -30,7 +30,7 @@ export default class AuthHelperMethods {
     isTokenExpired = (token) => {
         try {
             const decoded = decode(token);
-            if (decoded.exp < Date.now() / 1000) { // Checking if token is expired.
+            if (decoded.expiresIn < Date.now() / 1000) { // Checking if token is expired.
                 return true;
             }
             else

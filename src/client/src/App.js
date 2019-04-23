@@ -18,7 +18,7 @@ class App extends Component {
 
   _handleLogout = () => {
     this.Auth.logout()
-    this.props.history.replace('/login');
+    this.props.history.push('/login');
   }
 
   //Render the protected component
