@@ -3,15 +3,12 @@
 const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
+var cors = require('cors');
 
 const applyTo = (app) => {
-    app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-        next();
-    });
 
+    app.use(cors());
+    app.options('*', cors())
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 

@@ -20,8 +20,9 @@ const attachTo = (app, data) => {
             data.user.findOrCreate({ where: { username: req.body.username, password: bcrypt.hashSync(req.body.password, 8) } })
             .then(([user, created]) => {
                 if (created) {
+                    let date = Date.now();
                     const token = jwt.sign({ id: user.id }, config.secret, {
-                        expiresIn: 60 * 60 * 24 // expires in 24 hours
+                        expiresIn: date.setMinutes(date.getMinutes() + (60 * 60 * 24))
                     });
                     return res.status(200).json({
                         success: true,
